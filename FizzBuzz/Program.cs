@@ -16,7 +16,7 @@ namespace FizzBuzz
                 .AddSingleton<IConsoleIO, ConsoleIO>()
                 .BuildServiceProvider();
 
-            var processamento = serviceProvider.GetService<Processamento>();
+            var processamento = serviceProvider.GetService<IProcessamento>();
             processamento.Iniciar(args);
         }
     }
