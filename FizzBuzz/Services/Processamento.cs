@@ -36,10 +36,8 @@ namespace FizzBuzz.Services
                 result = "Fizz";
             if (numero % 5 == 0)
                 result += "Buzz";
-            if(result == string.Empty)
-                result = numero.ToString();
 
-            return result;
+            return result == string.Empty? numero.ToString() : result;
         }
 
         private bool ValidaInteiro(string valor)
