@@ -5,10 +5,12 @@ namespace FizzBuzz.Services
     public class Processamento : IProcessamento
     {
         private readonly IConsoleIO _console;
+        private readonly INumero _numero;
 
-        public Processamento(IConsoleIO console)
+        public Processamento(IConsoleIO console, INumero numero)
         {
             _console = console;
+            _numero = numero;
         }
 
         public void Iniciar(string[] args)
@@ -31,13 +33,7 @@ namespace FizzBuzz.Services
 
         public string ValidaNumero(int numero)
         {
-            string result = string.Empty;
-            if (numero % 3 == 0)
-                result = "Fizz";
-            if (numero % 5 == 0)
-                result += "Buzz";
-
-            return result == string.Empty? numero.ToString() : result;
+            return _numero.FizzBuzz(numero);
         }
 
         private bool ValidaInteiro(string valor)

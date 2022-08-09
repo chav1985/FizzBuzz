@@ -19,7 +19,7 @@ namespace FizzBuzzTest
         }
 
         [TestMethod]
-        public void IniciarTestValor1()
+        public void IniciarValor1Test()
         {
             mocker.GetMock<IConsoleIO>()
                 .SetupSequence(x => x.ReadLine())
@@ -37,7 +37,7 @@ namespace FizzBuzzTest
         }
 
         [TestMethod]
-        public void IniciarTestValor3()
+        public void IniciarValor3Test()
         {
             mocker.GetMock<IConsoleIO>()
                 .SetupSequence(x => x.ReadLine())
@@ -55,7 +55,7 @@ namespace FizzBuzzTest
         }
 
         [TestMethod]
-        public void IniciarTestValor5()
+        public void IniciarValor5Test()
         {
             mocker.GetMock<IConsoleIO>()
                 .SetupSequence(x => x.ReadLine())
@@ -73,7 +73,7 @@ namespace FizzBuzzTest
         }
 
         [TestMethod]
-        public void IniciarTestValor75()
+        public void IniciarValor75Test()
         {
             mocker.GetMock<IConsoleIO>()
                 .SetupSequence(x => x.ReadLine())
@@ -91,7 +91,7 @@ namespace FizzBuzzTest
         }
 
         [TestMethod]
-        public void IniciarTestValores()
+        public void IniciarValoresTest()
         {
             mocker.GetMock<IConsoleIO>()
                 .SetupSequence(x => x.ReadLine())
