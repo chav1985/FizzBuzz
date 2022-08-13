@@ -1,6 +1,5 @@
 ﻿using FizzBuzz.Helpers;
 using FizzBuzz.Interfaces;
-using FizzBuzz.Numbers;
 using FizzBuzz.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
@@ -15,11 +14,10 @@ namespace FizzBuzz
             var serviceProvider = new ServiceCollection()
                 .AddSingleton<IProcessamento, Processamento>()
                 .AddSingleton<IConsoleIO, ConsoleIO>()
-                .AddTransient<INumero, Divisivel>()
+                .AddSingleton<ValidaFizzBuzz>()
                 .BuildServiceProvider();
 
-            var processamento = serviceProvider.GetService<IProcessamento>();
-            processamento.Iniciar(args);
+            serviceProvider.GetService<IProcessamento>().Iniciar(args);
         }
     }
 }

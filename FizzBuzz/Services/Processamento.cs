@@ -1,45 +1,32 @@
-﻿using FizzBuzz.Interfaces;
+﻿using FizzBuzz.Helpers;
+using FizzBuzz.Interfaces;
 
 namespace FizzBuzz.Services
 {
     public class Processamento : IProcessamento
     {
         private readonly IConsoleIO _console;
-        private readonly INumero _numero;
+        private readonly ValidaFizzBuzz _validaFizzBuzz;
 
-        public Processamento(IConsoleIO console, INumero numero)
+        public Processamento(IConsoleIO console, ValidaFizzBuzz validaFizzBuzz)
         {
             _console = console;
-            _numero = numero;
+            _validaFizzBuzz = validaFizzBuzz;
         }
 
         public void Iniciar(string[] args)
         {
-            string result = string.Empty;
-            do
+            for (int i = 1; i <= 100; i++)
             {
-                _console.Clear();
-                _console.Write("Digite um numero para validar ou digite sair: ");
-                result = _console.ReadLine();
-
-                if (ValidaInteiro(result))
-                {
-                    string response = ValidaNumero(int.Parse(result));
-                    _console.WriteLine(response);
-                    _console.ReadKey();
-                }
-            } while (result.ToLower() != "sair");
+                string result = ValidaNumero(i);
+                _console.WriteLine(result);
+            }
+            _console.ReadKey();
         }
 
         public string ValidaNumero(int numero)
         {
-            return _numero.FizzBuzz(numero);
-        }
-
-        private bool ValidaInteiro(string valor)
-        {
-            int valorCompara;
-            return int.TryParse(valor, out valorCompara);
+            return _validaFizzBuzz.ValidacaoFizzBuzz(numero);
         }
     }
 }
