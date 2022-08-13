@@ -14,7 +14,7 @@ namespace FizzBuzz
             var serviceProvider = new ServiceCollection()
                 .AddSingleton<IProcessamento, Processamento>()
                 .AddSingleton<IConsoleIO, ConsoleIO>()
-                .AddSingleton<ValidaFizzBuzz>()
+                .AddSingleton<IValidaFizzBuzz, ValidaFizzBuzz>()
                 .BuildServiceProvider();
 
             serviceProvider.GetService<IProcessamento>().Iniciar(args);

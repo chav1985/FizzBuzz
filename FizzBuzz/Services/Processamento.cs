@@ -6,9 +6,9 @@ namespace FizzBuzz.Services
     public class Processamento : IProcessamento
     {
         private readonly IConsoleIO _console;
-        private readonly ValidaFizzBuzz _validaFizzBuzz;
+        private readonly IValidaFizzBuzz _validaFizzBuzz;
 
-        public Processamento(IConsoleIO console, ValidaFizzBuzz validaFizzBuzz)
+        public Processamento(IConsoleIO console, IValidaFizzBuzz validaFizzBuzz)
         {
             _console = console;
             _validaFizzBuzz = validaFizzBuzz;
@@ -26,7 +26,7 @@ namespace FizzBuzz.Services
 
         public string ValidaNumero(int numero)
         {
-            return _validaFizzBuzz.ValidacaoFizzBuzz(numero);
+            return _validaFizzBuzz.ValidaFizz(numero);
         }
     }
 }
